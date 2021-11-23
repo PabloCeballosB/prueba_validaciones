@@ -19,29 +19,31 @@
   <div id=divError></div>
   <p>
     <label for=iMatricula>Matrícula</label>
-    <input type=text id=iMatricula />
+    <input type=text id=iMatricula pattern="^[A-Z]{0,1}([A-Z]-){0,1}[0-9]{4}-[A-Z]{1,3}$"/>
   </p>
 
   <p>
     <label for=sCurso>Curso</label>
-    <select id=sCurso>
+    <select id=sCurso onchange="anadir(this)">
       <option value=null> </option>
       <option value=1DAW>Primero de DAW</option>
       <option value=2DAW>Segundo de DAW</option>
     </select>
   </p>
+  <p id="modulos">
 
+  </p>
   <p>
     <label for=iCalculo1>Calculos</label>
-    <input type=number min=0 max=10 step=1 id=iCalculo1 />
-    <input type=number min=0 max=10 step=1 id=iCalculo2 />
-    <input type=number min=0 max=10 step=1 id=iCalculo3 />
+    <input type=number min=0 max=10 step=1 id=iCalculo1 onchange="calcular()"/>
+    <input type=number min=0 max=10 step=1 id=iCalculo2 onchange="calcular()"/>
+    <input type=number min=0 max=10 step=1 id=iCalculo3 onchange="calcular()"/>
     <span id=spanMedia>N/A</span>
   </p>
 
   <p>
-    <button type=button id=btnCero>Poner a Cero</button>
-    <button>Enviar</button>
+    <button type=button id=btnCero onclick="poneraCero()">Poner a Cero</button>
+    <button type=button id=btnEnviar onclick="enviar()">Enviar</button>
   </p>
 
   <script src=js/validaciones.js></script>
